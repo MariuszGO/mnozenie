@@ -39,6 +39,7 @@
 
             for (int i = 0; i < this.n; i++)
             {
+                Console.WriteLine("Wykonano " + i + " iteracji z " + this.n + " iteracji");
                 for (int j = 0; j < this.n; j++)
                 {
                     c[i, j] = 0;
@@ -46,7 +47,6 @@
                     {
                         c[i, j] += a[i, k] * b[k, j];
                     }
-
                 }
             }
 
@@ -57,17 +57,17 @@
         {
           //  int n = 10;
 
-            Program obiekt = new Program(3);
+            Program obiekt = new Program(6000);
 
             Int128[,] a = new Int128[obiekt.n, obiekt.n];
             Int128[,] b = new Int128[obiekt.n, obiekt.n];
             Int128[,] c = new Int128[obiekt.n, obiekt.n];
 
-            obiekt.losowanie(a,b,1,4);
-            obiekt.wyswietlanie(a);
-            obiekt.wyswietlanie(b);
+            obiekt.losowanie(a,b,1,100);
+           // obiekt.wyswietlanie(a);
+           // obiekt.wyswietlanie(b);
             obiekt.mnozenie(a, b, c);
-            obiekt.wyswietlanie(c);
+           // obiekt.wyswietlanie(c);
 
 
         }

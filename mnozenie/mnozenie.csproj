@@ -5,6 +5,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+<BuildInParallel>true</BuildInParallel>
+  <MaxCpuCount>4</MaxCpuCount>
   </PropertyGroup>
 
 </Project>
