@@ -1,4 +1,6 @@
-﻿namespace mnozenie
+﻿using System.Threading.Tasks;
+
+namespace mnozenie
 {
     internal class Program
     {
@@ -39,8 +41,8 @@
 
             for (int i = 0; i < this.n; i++)
             {
-                Console.WriteLine("Wykonano " + i + " iteracji z " + this.n + " iteracji");
-                for (int j = 0; j < this.n; j++)
+                Console.WriteLine("Wykonano " + i + " iteracji z " + this.n + " iteracji"); //wyświetlanie postępu
+                for (int j = 0; j < this.n; j++) //pętla
                 {
                     c[i, j] = 0;
                     for (int k = 0; k < this.n; k++)
@@ -51,9 +53,27 @@
             }
 
 
-                }
+        } //end of mnozenie
 
-            static void Main(string[] args)
+        public void mnozenieRownolegle(Int128[,] a, Int128[,] b, Int128[,] c)
+        {
+            Parallel.For(0, this.n, i =>
+            {
+                Console.WriteLine("Wykonano " + i + " iteracji z " + this.n + " iteracji"); //wyświetlanie postępu
+                for (int j = 0; j < this.n; j++)
+                {
+                    c[i, j] = 0;
+                    for (int k = 0; k < this.n; k++)
+                    {
+                        c[i, j] += a[i, k] * b[k, j];
+                    }
+                }
+            });
+        }
+
+
+
+        static void Main(string[] args)
         {
           //  int n = 10;
 
@@ -66,8 +86,9 @@
             obiekt.losowanie(a,b,1,100);
            // obiekt.wyswietlanie(a);
            // obiekt.wyswietlanie(b);
-            obiekt.mnozenie(a, b, c);
-           // obiekt.wyswietlanie(c);
+            //obiekt.mnozenie(a, b, c);
+            obiekt.mnozenieRownolegle(a, b, c);
+            // obiekt.wyswietlanie(c);
 
 
         }
