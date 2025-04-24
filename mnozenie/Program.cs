@@ -56,7 +56,7 @@ namespace mnozenie
                 Console.WriteLine("Błąd: Plik nie został znaleziony.");
 
             string[] linie = File.ReadAllLines(sciezka);
-
+            Console.Write("x" +linie);
 
             foreach (var linia in linie)
             {
@@ -74,7 +74,7 @@ namespace mnozenie
                     int.TryParse(czesci[i + 1], out int wartosc);
 
                     tablica[x, y] = wartosc;
-                    Console.WriteLine("Wczytano: " + x + "," + y + " " + wartosc);
+                    Console.WriteLine("Wczytano: " + x + "," + y + " " + tablica[x,y]);
                 }
             }
         }           
@@ -121,11 +121,11 @@ namespace mnozenie
             Int128[,] b = new Int128[obiekt.n, obiekt.n];
             Int128[,] c = new Int128[obiekt.n, obiekt.n];
 
-            obiekt.losowanie(a,b,-50,50);
+            obiekt.losowanie(a,b,-5000,5000);
             // obiekt.wyswietlanie(a);
             // obiekt.wyswietlanie(b);
             //obiekt.mnozenie(a, b, c);
-            obiekt.mnozenieRownolegle(a, b, c);
+           // obiekt.mnozenieRownolegle(a, b, c);
             // obiekt.wyswietlanie(c);
             obiekt.zapiszPliku(a, "a.txt");
             obiekt.zapiszPliku(b, "b.txt");
