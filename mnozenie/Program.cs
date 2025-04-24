@@ -129,7 +129,7 @@ namespace mnozenie
 
         static void Main(string[] args)
         {
-          //  int n = 10;
+        
 
             Console.WriteLine("Podaj rozmiar macierzy: ");
             int n = Convert.ToInt32(Console.ReadLine());
@@ -142,7 +142,7 @@ namespace mnozenie
             Int128[,] c = new Int128[obiekt.n, obiekt.n];
 
 
-            obiekt.WczytajDoTablicy(a, "a.txt");
+            
 
             obiekt.losowanie(a,b,-50,50);
            // obiekt.wyswietlanie(a);
@@ -154,117 +154,8 @@ namespace mnozenie
             obiekt.zapiszPliku(b, "b.txt");
             obiekt.zapiszPliku(c, "c.txt");
 
+            obiekt.WczytajDoTablicy(a, "a.txt");
+
         }
     }
 }
-
-
-
-/*
-
- foreach (string linia in linie)
-    {
-        var czesci = linia.Split(' ');
-        if (czesci.Length < 2) continue; // Pomijamy błędne linie
-
-        var indeksy = czesci[0].Split(',');
-
-        if (indeksy.Length < 2) continue;
-
-        if (int.TryParse(indeksy[0], out int x) && int.TryParse(indeksy[1], out int y))
-        {
-            maxX = Math.Max(maxX, x);
-            maxY = Math.Max(maxY, y);
-        }
-    }
-
-    int[,] tablica = new int[maxX + 1, maxY + 1];
-
-    // Wypełnienie tablicy wartościami
-    foreach (string linia in linie)
-    {
-        var czesci = linia.Split(' ');
-        if (czesci.Length < 2) continue;
-
-        var indeksy = czesci[0].Split(',');
-
-        if (indeksy.Length < 2) continue;
-
-        if (int.TryParse(indeksy[0], out int x) &&
-            int.TryParse(indeksy[1], out int y) &&
-            int.TryParse(czesci[1], out int wartosc))
-        {
-            tablica[x, y] = wartosc;
-        }
-    }
-
-    return tablica;
-
-
-
-
-
-
-
-using System;
-using System.IO;
-
-class Program
-{
-    static void Main()
-    {
-        string path = "ścieżka_do_pliku.txt";
-        int[,] tablica = WczytajDoTablicy(path);
-
-        // Przykładowy wydruk fragmentu tablicy
-        for (int i = 0; i < tablica.GetLength(0); i++)
-        {
-            for (int j = 0; j < tablica.GetLength(1); j++)
-            {
-                Console.Write(tablica[i, j] + "\t");
-            }
-            Console.WriteLine();
-        }
-    }
-
-    static int[,] WczytajDoTablicy(string sciezka)
-    {
-        // Wczytaj wszystkie linie z pliku
-        string[] linie = File.ReadAllLines(sciezka);
-
-        // Najpierw znajdź maksymalne indeksy, żeby określić rozmiar tablicy
-        int maxX = 0;
-        int maxY = 0;
-
-        foreach (string linia in linie)
-        {
-            var czesci = linia.Split(' ');
-            var indeksy = czesci[0].Split(',');
-
-            int x = int.Parse(indeksy[0]);
-            int y = int.Parse(indeksy[1]);
-
-            if (x > maxX) maxX = x;
-            if (y > maxY) maxY = y;
-        }
-
-        int[,] tablica = new int[maxX + 1, maxY + 1];
-
-        // Teraz wypełniamy tablicę danymi
-        foreach (string linia in linie)
-        {
-            var czesci = linia.Split(' ');
-            var indeksy = czesci[0].Split(',');
-
-            int x = int.Parse(indeksy[0]);
-            int y = int.Parse(indeksy[1]);
-            int wartosc = int.Parse(czesci[1]);
-
-            tablica[x, y] = wartosc;
-        }
-
-        return tablica;
-    }
-}
-
-*/
